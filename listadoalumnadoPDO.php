@@ -24,20 +24,16 @@
                                       from alumnado al, aulasvirtuales au, matriculas mat
                                       where al.dni = mat.dni and mat.id_aula = au.id', $conexion);
 
-            $ar_datos = $resultado -> fetch_object();
-
-            while($ar_datos != null){
+            while($dato = $resultado -> fetch(PDO::FETCH_OBJ)){
                 echo "<tr>
-                        <td>{$ar_datos -> dni}</td>
-                        <td>{$ar_datos -> nombre}</td>
-                        <td>{$ar_datos -> apellidos}</td>
-                        <td>{$ar_datos -> email}</td>
-                        <td>{$ar_datos -> id}</td>
+                        <td>{$dato -> dni}</td>
+                        <td>{$dato -> nombre}</td>
+                        <td>{$dato -> apellidos}</td>
+                        <td>{$dato -> email}</td>
+                        <td>{$dato -> id}</td>
                       </tr>";
-                $ar_datos = $resultado -> fetch_object();
             }
-
-            $conexion -> close();
+            
         ?>
 
     </table>
