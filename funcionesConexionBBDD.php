@@ -1,7 +1,7 @@
 <?php
     function establecerConexion($host, $usuario, $password, $database){
         // Creacion de variable temporal que almacena el resultado de la conexión
-        $conexion = new PDO("mysql:host=$host;dbname=$database",
+        $conexion = new PDO("pgsql:host=$host;dbname=$database",
                              $usuario,
                              $password);
 

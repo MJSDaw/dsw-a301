@@ -18,7 +18,7 @@
         <?php
             require (__DIR__."/funcionesConexionBBDD.php");
             
-            $conexion = establecerConexion('localhost', 'root', '', 'campus');
+            $conexion = establecerConexion('localhost', 'root', 'moises', 'campus');
 
             $resultado = querySelect('select al.dni, al.nombre, al.apellidos, al.email, au.id 
                                       from alumnado al, aulasvirtuales au, matriculas mat
