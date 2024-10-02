@@ -1,11 +1,17 @@
 <?php
     function establecerConexion($host, $usuario, $password, $database){
         // Creacion de variable temporal que almacena el resultado de la conexión
-        $conexion = new PDO("pgsql:host=$host;dbname=$database",
-                             $usuario,
-                             $password);
+        try{
+            $conexion = new PDO("pgsql:host=$host;dbname=$database",
+                                $usuario,
+                                $password);
 
-        return $conexion;
+            $conexion -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+            return $conexion;
+        } catch (PDOExepcion $e){
+            echo "Error de conexión: " . $e -> getMessage();
+        }
     }
 
     function querySelect($stringQuery, $conexion){
