@@ -1,10 +1,10 @@
 <?php
-    function establecerConexion($dns, $usuario, $password, $database){
+    function establecerConexion($dominio, $usuario, $password, $database){
         // Creacion de variable temporal que almacena el resultado de la conexión
-        $conexion = new PDO('localhost',
-                            'root',
-                            '',
-                            'campus');
+        $conexion = new mysqli($dominio,
+                               $usuario,
+                               $password,
+                               $database);
 
         // Comprobar el error con el atributo connect_errno
         $error = $conexion -> connect_errno;
