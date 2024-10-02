@@ -15,4 +15,8 @@
 
         return $conexion;
     }
+
+    function querySelect($stringQuery, $conexion){
+        return $conexion -> query($stringQuery);
+    }
 ?>

@@ -20,9 +20,9 @@
             
             $conexion = establecerConexion('localhost', 'root', '', 'campus');
 
-            $resultado = $conexion -> query('select al.dni, al.nombre, al.apellidos, al.email, au.id 
-                                             from alumnado al, aulasvirtuales au, matricula mat
-                                             where al.dni = mat.dni and mat.id_aula = au.id');
+            $resultado = querySelect('select al.dni, al.nombre, al.apellidos, al.email, au.id 
+                                      from alumnado al, aulasvirtuales au, matriculas mat
+                                      where al.dni = mat.dni and mat.id_aula = au.id', $conexion);
 
             $ar_datos = $resultado -> fetch_object();
 
