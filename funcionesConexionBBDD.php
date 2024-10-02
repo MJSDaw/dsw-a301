@@ -1,7 +1,7 @@
 <?php
-    function establecerConexion($dominio, $usuario, $password, $database){
+    function establecerConexion($dns, $usuario, $password, $database){
         // Creacion de variable temporal que almacena el resultado de la conexión
-        $conexion = new mysqli('localhost',
+        $conexion = new PDO('localhost',
                             'root',
                             '',
                             'campus');
